@@ -1,7 +1,19 @@
+using RentACarProject.CqrsPattern.Handlers;
+using RentACarProject.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<RentContext>();
+
+builder.Services.AddScoped<GetRentCarQueryHandler>();
+builder.Services.AddScoped<CreateRentCarCommandHandler>();
+builder.Services.AddScoped<RemoveRentCarCommandHandler>();
+builder.Services.AddScoped<GetRentCarByIdQueryHandler>();
+builder.Services.AddScoped<UpdateRentCarCommandHandler>();
+builder.Services.AddScoped<GetRentCarGreenQueryHandler>();
+builder.Services.AddScoped<GetRentCarRedQueryHandler>();
 
 var app = builder.Build();
 

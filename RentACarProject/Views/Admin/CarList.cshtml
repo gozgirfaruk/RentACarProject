@@ -1,11 +1,11 @@
 ﻿@using RentACarProject.CqrsPattern.Results
-@model List<GetRentCarGreenQueryResult>
+@model List<GetRentCarQueryResult>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "CarList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int count = 0;
-
 }
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -32,7 +32,7 @@
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-
+                                        
                                         <th>#</th>
                                         <th>Marka</th>
                                         <th>Model</th>
@@ -41,19 +41,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
+                                    @foreach(var item in Model)
                                     {
                                         count++;
                                         <tr>
                                             <th>@count</th>
-                                            <td>@item.Brand</td>
-                                            <td>@item.Model</td>
-                                            <td>@item.Location</td>
-                                            <td>@item.Price</td>
+                                        <td>@item.Brand</td>
+                                        <td>@item.Model</td>
+                                        <td>@item.Location</td>
+                                        <td>@item.Price</td>
                                             <td><a href="/Admin/GetCar/@item.CarID" class="btn btn-info">Detay</a></td>
                                             <td><a href="/Admin/GetCar/@item.CarID" class="btn btn-primary">Güncelle</a></td>
                                             <td><a href="/Admin/DeleteCar/@item.CarID" class="btn btn-danger">Sil</a></td>
-                                            <td>
+                                    <td>
                                                 @if (item.Status == true)
                                                 {
                                                     <a href="#" class="btn btn-success">Müsait</a>
@@ -63,19 +63,21 @@
                                                     <a href="#" class="btn btn-warning">Kirada</a>
                                                 }
                                             </td>
-                                        </tr>
+                                    </tr>
                                     }
-
+                                   
                                 </tbody>
                             </table>
-
+                           
                         </div>
                     </div>
                 </div>
                 <!-- End  Kitchen Sink -->
             </div>
-
+          
         </div>
     </div>
 </body>
 </html>
+
+

@@ -1,0 +1,80 @@
+﻿@using RentACarProject.CqrsPattern.Results
+@model GetRentCarByIdQueryResult
+@{
+    ViewData["Title"] = "GetCar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-head-line">Filo Araç Detayları</h1>
+            <h1 class="page-subhead-line">Bu alanda araç detaylarını görüntüleyebilirsiniz. </h1>
+
+        </div>
+    </div>
+    <!-- /. ROW  -->
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    ÖFG Araç Kiralama
+                </div>
+                <div class="panel-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" asp-for="CarID">
+                        </div>
+                        <div class="form-group">
+                            <label>Araba Markası</label>
+                            <input class="form-control" type="text" asp-for="Brand">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bulunduğu Lokasyon</label>
+                            <input class="form-control" type="text" asp-for="Location">
+                        </div>
+                        <div class="form-group">
+                            <label>Araba Görsel</label>
+                            <input class="form-control" type="text" asp-for="ImageUrl">
+                        </div>
+                        <div class="form-group">
+                            <label>Günlük Ücret</label>
+                            <input class="form-control" type="text" asp-for="Price">
+                        </div>
+                        <div class="form-group">
+                            <label>Araba Model</label>
+                            <input class="form-control" type="text" asp-for="Model">
+                        </div>
+                        <div class="form-group">
+                            <label>Kapı Sayısı</label>
+                            <input class="form-control" type="text" asp-for="DoorCount">
+                        </div>
+                        <div class="form-group">
+                            <label>Araba Yıl</label>
+                            <input class="form-control" type="text" asp-for="Year">
+                        </div>
+                        <div class="form-group">
+                            <label>Vites</label>
+                            <input class="form-control" type="text" asp-for="VitesType">
+                        </div>
+                        <div class="form-group">
+                            <label>Yakıt Tipi</label>
+                            <input class="form-control" type="text" asp-for="FuelType">
+                        </div>
+                        <div class="form-group">
+                            <label>Yetişkin Sayısı</label>
+                            <input class="form-control" type="text" asp-for="AdultCount">
+                        </div>
+
+                        <button type="submit" class="btn btn-info">Araç Güncelle </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
