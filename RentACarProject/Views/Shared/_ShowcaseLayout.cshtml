@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+@await Html.PartialAsync("/Views/_ShowcaseLayoutPartial/_HeadPartial.cshtml")
+
+
+<body>
+   
+
+    @await Html.PartialAsync("/Views/_ShowcaseLayoutPartial/_NavbarPartial.cshtml")
+
+    @RenderBody()
+
+    @await Html.PartialAsync("/Views/_ShowcaseLayoutPartial/_ScriptsPartial.cshtml")
+    
+  
+</body>
+
+</html>
+
+   
