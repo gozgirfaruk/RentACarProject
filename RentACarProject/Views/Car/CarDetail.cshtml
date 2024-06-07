@@ -1,0 +1,54 @@
+﻿@using RentACarProject.MediatorPattern.Results
+@model AGetCarByIdQueryResult
+@{
+    ViewData["Title"] = "CarDetail";
+    Layout = "~/Views/Shared/_ShowcaseLayout.cshtml";
+}
+
+<section id="new-cars" class="new-cars">
+			<div class="container">
+				<div class="section-header">
+					<p>Filomuzda <span>yer</span> alan araçlar.</p>
+					<h2>Araba Detaylarını İncele</h2>
+				</div><!--/.section-header-->
+				<div class="new-cars-content">
+					<div class="owl-carousel owl-theme" id="new-cars-carousel">
+				
+				<div class="new-cars-item">
+							<div class="single-new-cars-item">
+								<div class="row">
+									<div class="col-md-7 col-sm-12">
+										<div class="new-cars-img">
+											<img src="@Model.ImageUrl" alt="img"/>
+										</div><!--/.new-cars-img-->
+									</div>
+									<div class="col-md-5 col-sm-12">
+										<div class="new-cars-txt">
+											<h2><a href="#">@Model.Brand <span> @Model.Model</span></a></h2>
+											<p>
+												<ul>
+													Lokasyon : <li>@Model.Location</li>
+													Kapı Sayı: <li>@Model.DoorCount</li>
+													Araç Yıl : <li>@Model.Year</li>
+													Vites Tür: <li>@Model.VitesType</li>
+													Yakıt    : <li>@Model.FuelType</li>
+													Kapasite : <li>@Model.AdultCount</li>
+												</ul>
+												 
+											</p>
+											
+											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
+												view details
+											</button>
+										</div><!--/.new-cars-txt-->	
+									</div><!--/.col-->
+								</div><!--/.row-->
+							</div><!--/.single-new-cars-item-->
+						</div>
+					
+					</div><!--/#new-cars-carousel-->
+				</div><!--/.new-cars-content-->
+			</div><!--/.container-->
+
+		</section>
+

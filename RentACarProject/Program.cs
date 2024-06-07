@@ -1,5 +1,6 @@
 using RentACarProject.CqrsPattern.Handlers;
 using RentACarProject.DAL;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ builder.Services.AddScoped<GetRentCarByIdQueryHandler>();
 builder.Services.AddScoped<UpdateRentCarCommandHandler>();
 builder.Services.AddScoped<GetRentCarGreenQueryHandler>();
 builder.Services.AddScoped<GetRentCarRedQueryHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies
+(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 

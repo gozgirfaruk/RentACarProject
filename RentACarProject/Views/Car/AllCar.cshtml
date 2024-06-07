@@ -1,0 +1,49 @@
+﻿@using RentACarProject.MediatorPattern.Results
+@model List<AGetCarQueryResult>
+@{
+    ViewData["Title"] = "AllCar";
+    Layout = "~/Views/Shared/_ShowcaseLayout.cshtml";
+}
+
+<section id="featured-cars" class="featured-cars">
+	<div class="container">
+		<div class="section-header">
+			
+			<h2>Kiralık Araçlar</h2>
+			<br />
+		</div><!--/.section-header-->
+		<div class="featured-cars-content">
+			<div class="row">
+				@foreach(var item in Model)
+				{
+					<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="single-featured-cars">
+						<div class="featured-img-box">
+							<div class="featured-cars-img">
+								<img src="@item.ImageUrl">
+							</div>
+							<div class="featured-model-info">
+							<p>@item.Location</p>
+							</div>
+						</div>
+						<div class="featured-cars-txt">
+							<h2><a href="/Car/CarDetail/@item.CarID">@item.Brand @item.Model</a></h2>
+							<h3>@item.Price ₺/ Gün</h3>
+								<p>
+									Özellikler: @item.Year
+									<span class="featured-mi-span">4000 KM </span>
+										@item.FuelType
+								</p>
+						</div>
+						<a href="/Car/CarDetail/@item.CarID" class="btn btn-outline-dark" style="margin-bottom:50px;">İncele</a>
+					</div>
+				</div>
+				
+				}
+				
+			</div>
+		</div>
+	</div><!--/.container-->
+
+</section>
+
