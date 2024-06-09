@@ -30,6 +30,9 @@
 * Araç Detay Sayfası
 ![RentCar2](https://github.com/gozgirfaruk/RentACarProject/assets/125920944/6f41b64f-315e-4b9e-bba2-0b40212547e1)
 
+* Araç Pop-Up Listeleme
+![Screenshot_2](https://github.com/gozgirfaruk/RentACarProject/assets/125920944/db23c12f-d453-47cb-ae49-d2f2265d4085)
+
 
 * Admin Filo Listesi
 ![RentCar5](https://github.com/gozgirfaruk/RentACarProject/assets/125920944/e6263ce4-a2cf-45c6-80c7-617bc7cf6da5)
@@ -42,7 +45,4 @@
 * Admin Kiralık Araç Listesi
 ![RentCar7](https://github.com/gozgirfaruk/RentACarProject/assets/125920944/6245085d-ec4a-4c47-a2fb-a99126e760e4)
 
-
-* Admin Araç Güncelleme Sayfası
-![Screenshot_1](https://github.com/gozgirfaruk/RentACarProject/assets/125920944/34239724-2383-471e-b244-9d375def7d9a)
 
