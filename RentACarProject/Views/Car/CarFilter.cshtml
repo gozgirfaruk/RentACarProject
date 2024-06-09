@@ -1,69 +1,132 @@
 ﻿@using RentACarProject.MediatorPattern.Results
-@model AGetRentCarByLocationQueryResult
+@model List<AGetRentCarByLocationQueryResult>
 
 @{
     ViewData["Title"] = "CarFilter";
-	Layout = "~/Views/Shared/_ShowcaseLayout.cshtml";
+	Layout = null;
 }
 
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+	<!-- meta data -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!--font-family-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
+
+	<!-- title of site -->
+	<title>CarVilla</title>
+
+	<!-- For favicon png -->
+	<link rel="shortcut icon" type="image/icon" href="assets/logo/favicon.png" />
+
+	<!--font-awesome.min.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/font-awesome.min.css">
+
+	<!--linear icon css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/linearicons.css">
+
+	<!--flaticon.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/flaticon.css">
+
+	<!--animate.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/animate.css">
+
+	<!--owl.carousel.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/owl.theme.default.min.css">
+
+	<!--bootstrap.min.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/bootstrap.min.css">
+
+	<!-- bootsnav -->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/bootsnav.css">
+
+	<!--style.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/style.css">
+
+	<!--responsive.css-->
+	<link rel="stylesheet" href="~/carvilla-v1.0/assets/css/responsive.css">
+
+</head>
 
 <body>
-    <!-- Booking Start -->
-    <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="row gx-5">
-                <div class="col-lg-6 py-5">
-                    <div class="py-5">
-                        <h1 class="text-white mb-4">Certified and Award Winning Car Repair Service Provider</h1>
-                        <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
-                        <h1 class="text-white mb-4">Book For A Service</h1>
-                        <form method="post">
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
-                                </div>
+	
+	<!--featured-cars start -->
+	<section id="featured-cars" class="featured-cars">
+		<div class="container">
+			<div class="section-header">
+				<p>Seçtiğiniz <span>Lokasyonu</span> Lütfen Kontrol Ediniz.</p>
+				<h2>Bölgemdeki Araçlar</h2>
+			</div><!--/.section-header-->
+			<div class="featured-cars-content">
+				<div class="row">
+					@foreach(var item in Model)
+					{
+						<div class="col-lg-4 col-md-4 col-sm-6">
+							<div class="single-featured-cars">
+								<div class="featured-img-box">
+									<div class="featured-cars-img">
+										<img src="@item.ImageUrl">
+									</div>
+									<div class="featured-model-info">
+										<p>@item.Location</p>
+									</div>
+								</div>
+								<div class="featured-cars-txt">
+									<h2><a href="/Car/CarDetail/@item.CarID">@item.Brand @item.Model</a></h2>
+									<h3>@item.Price ₺/ Gün</h3>
+									<p>
+										Özellikler: @item.Year
+										<span class="featured-mi-span">4000 KM </span>
+										@item.FuelType
+									</p>
+									<p>
+                                        Ödenecek Tutar : <strong>@item.Price * @ViewBag.days</strong>
 
-                                <input type="text" asp-for="Location"/>
+                                    </p>
+								</div>
+								<a href="/Car/CarDetail/@item.CarID" class="btn btn-danger">Kirala</a>
+							</div>
+						</div>
+					}
+					
+				</div>
+			</div>
+		</div><!--/.container-->
 
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text"
-                                               class="form-control border-0 datetimepicker-input"
-                                               placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Request"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	</section><!--/.featured-cars-->
+	
+
+	<script src="~/carvilla-v1.0/assets/js/jquery.js"></script>
+
+	<!--modernizr.min.js-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+	<!--bootstrap.min.js-->
+	<script src="~/carvilla-v1.0/assets/js/bootstrap.min.js"></script>
+
+	<!-- bootsnav js -->
+	<script src="~/carvilla-v1.0/assets/js/bootsnav.js"></script>
+
+	<!--owl.carousel.js-->
+	<script src="~/carvilla-v1.0/assets/js/owl.carousel.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+	<!--Custom JS-->
+	<script src="~/carvilla-v1.0/assets/js/custom.js"></script>
+
 </body>
 
 </html>
+
 
 

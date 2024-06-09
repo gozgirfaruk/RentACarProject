@@ -6,45 +6,83 @@
 }
 
 <section id="featured-cars" class="featured-cars">
-	<div class="container">
-		<div class="section-header">
-			
-			<h2>Kiralık Araçlar</h2>
-			<br />
-		</div><!--/.section-header-->
-		<div class="featured-cars-content">
-			<div class="row">
-				@foreach(var item in Model)
-				{
-					<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="single-featured-cars">
-						<div class="featured-img-box">
-							<div class="featured-cars-img">
-								<img src="@item.ImageUrl">
-							</div>
-							<div class="featured-model-info">
-							<p>@item.Location</p>
-							</div>
-						</div>
-						<div class="featured-cars-txt">
-							<h2><a href="/Car/CarDetail/@item.CarID">@item.Brand @item.Model</a></h2>
-							<h3>@item.Price ₺/ Gün</h3>
-								<p>
-									Özellikler: @item.Year
-									<span class="featured-mi-span">4000 KM </span>
-										@item.FuelType
-								</p>
-						</div>
-						<a href="/Car/CarDetail/@item.CarID" class="btn btn-outline-dark" style="margin-bottom:50px;">İncele</a>
-						<a href="/Car/CarFilter/@item.Location" class="btn btn-outline-dark" style="margin-bottom:50px;">İncele</a>
-					</div>
-				</div>
-				
-				}
-				
-			</div>
-		</div>
-	</div><!--/.container-->
+    <div class="container">
+        <div class="section-header">
+
+            <h2>Kiralık Araçlar</h2>
+            <br />
+        </div><!--/.section-header-->
+        <div class="featured-cars-content">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-featured-cars">
+                            <div class="featured-img-box">
+                                <div class="featured-cars-img">
+                                    <img src="@item.ImageUrl">
+                                </div>
+                                <div class="featured-model-info">
+                                    <p>@item.Location</p>
+                                </div>
+                            </div>
+                            <div class="featured-cars-txt">
+                                <h2><a href="/Car/CarDetail/@item.CarID">@item.Brand @item.Model</a></h2>
+                                <h3>@item.Price ₺/ Gün</h3>
+                                <p>
+                                    Özellikler: @item.Year
+                                    <span class="featured-mi-span">4000 KM </span>
+                                    @item.FuelType
+                                </p>
+                            </div>
+                            <a href="/Car/CarDetail/@item.CarID" class="btn btn-outline-dark" style="margin-bottom:50px;">İncele</a>
+                            <div style="margin-bottom:75px; margin-top:-35px;">
+                                <p class="text-primary" style="cursor:pointer;" data-toggle="modal" data-target="#Modal1-@item.CarID">PopUp Aç</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="modal" id="Modal1-@item.CarID">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fw-bold">@item.Brand @item.Model</h5><br />
+                                </div>
+                                <div class="modal-body">
+
+                                    <img src="@item.ImageUrl" class="w-100 mb-3" style="height:300px;" />
+                                    <div class="card">
+                                        <div class="card-header">Araç Özellikleri</div>
+                                        <div class="card-body p-3">
+                                            <p><span style="font-weight:500">Yıl:</span>@item.Year</p>
+                                            <p><span style="font-weight:500">Vites Türü:</span>@item.VitesType</p>
+                                            <p><span style="font-weight:500">Km:</span>4000 Km İle Sınırlı</p>
+                                            <p><span style="font-weight:500">Yakıt:</span>@item.FuelType</p>
+                                            <p><span style="font-weight:500">Koltuk:</span>@item.AdultCount</p>
+                                            <p><span style="font-weight:500">Kapı:</span>@item.DoorCount</p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div><!--/.container-->
 
 </section>
+
+
+
+
+
+
 

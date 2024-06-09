@@ -1,0 +1,75 @@
+﻿@model RentACarProject.Models.CarFilterViewModel
+@{
+    ViewData["Title"] = "SearhCar";
+    Layout = "~/Views/Shared/_ShowcaseLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!-- Booking Start -->
+    <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-6 py-5">
+                    <div class="py-5">
+                        <h1 class="text-white mb-4">Size En Yakın Şehirlerde Arama Yapabilirsiniz</h1>
+                        <p class="text-white mb-0">Dilediğiniz aracı güvenle kiralayabilirsiniz.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
+                        <h1 class="text-white mb-4">Book For A Service</h1>
+                        <form method="post" asp-controller="Car" asp-action="CarFilter">
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-12">
+                                    <input type="text" class="form-control border-0" placeholder="Şehir Giriniz" asp-for="Location" style="height: 55px;">
+                                </div>
+                                
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="date"
+                                               class="form-control border-0 datetimepicker-input"
+                                               placeholder="Alış Tarihi" asp-for="StartDate" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="date"
+                                               class="form-control border-0 datetimepicker-input"
+                                               placeholder="Veriş Tarihi" asp-for="EndDate" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-secondary w-100 py-3" type="submit">Araç Ara</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+
+</html>
+
+<script>
+    function calculateDays() {
+        // İlk tarih alanını al
+        var startDate = new Date(document.getElementById('start_date').value);
+        // İkinci tarih alanını al
+        var endDate = new Date(document.getElementById('end_date').value);
+
+        // Tarihlerin zaman damgalarını al ve günler arasındaki farkı hesapla
+        var differenceInTime = endDate.getTime() - startDate.getTime();
+        var differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+        // Sonucu ekrana yazdır
+        document.getElementById('result').innerHTML = 'Gün Sayısı: ' + differenceInDays;
+    }
+</script>
+

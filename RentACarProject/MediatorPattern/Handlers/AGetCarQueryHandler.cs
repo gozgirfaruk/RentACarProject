@@ -27,7 +27,11 @@ namespace RentACarProject.MediatorPattern.Handlers
 				CarID = x.CarID,
 				FuelType = x.FuelType,
 				ImageUrl = x.ImageUrl,
-				Year = x.Year
+				Year = x.Year,
+				AdultCount = x.AdultCount,
+				DoorCount = x.DoorCount,
+				Status = x.Status,
+				VitesType = x.VitesType
 				
 			}).ToListAsync();
 			return values;
