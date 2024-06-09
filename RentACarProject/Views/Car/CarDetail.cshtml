@@ -1,54 +1,85 @@
 ﻿@using RentACarProject.MediatorPattern.Results
 @model AGetCarByIdQueryResult
+
+
 @{
     ViewData["Title"] = "CarDetail";
-    Layout = "~/Views/Shared/_ShowcaseLayout.cshtml";
+    Layout = null;
 }
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rufina:400,700" rel="stylesheet">
+    <title>CarVilla</title>
+    <link rel="shortcut icon" type="image/icon" href="~/carvilla-v1.0/assets/logo/favicon.png" />
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/linearicons.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/flaticon.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/animate.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/bootsnav.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/style.css">
+    <link rel="stylesheet" href="~/carvilla-v1.0/assets/css/responsive.css">
+</head>
+
 
 <section id="new-cars" class="new-cars">
-			<div class="container">
-				<div class="section-header">
-					<p>Filomuzda <span>yer</span> alan araçlar.</p>
-					<h2>Araba Detaylarını İncele</h2>
-				</div><!--/.section-header-->
-				<div class="new-cars-content">
-					<div class="owl-carousel owl-theme" id="new-cars-carousel">
-				
-				<div class="new-cars-item">
-							<div class="single-new-cars-item">
-								<div class="row">
-									<div class="col-md-7 col-sm-12">
-										<div class="new-cars-img">
-											<img src="@Model.ImageUrl" alt="img"/>
-										</div><!--/.new-cars-img-->
-									</div>
-									<div class="col-md-5 col-sm-12">
-										<div class="new-cars-txt">
-											<h2><a href="#">@Model.Brand <span> @Model.Model</span></a></h2>
-											<p>
-												<ul>
-													Lokasyon : <li>@Model.Location</li>
-													Kapı Sayı: <li>@Model.DoorCount</li>
-													Araç Yıl : <li>@Model.Year</li>
-													Vites Tür: <li>@Model.VitesType</li>
-													Yakıt    : <li>@Model.FuelType</li>
-													Kapasite : <li>@Model.AdultCount</li>
-												</ul>
-												 
-											</p>
-											
-											<button class="welcome-btn new-cars-btn" onclick="window.location.href='#'">
-												view details
-											</button>
-										</div><!--/.new-cars-txt-->	
-									</div><!--/.col-->
-								</div><!--/.row-->
-							</div><!--/.single-new-cars-item-->
-						</div>
-					
-					</div><!--/#new-cars-carousel-->
-				</div><!--/.new-cars-content-->
-			</div><!--/.container-->
+    <div class="container">
+        <div class="section-header">
+            <h2>Araba Detayı</h2>
+        </div><!--/.section-header-->
+        <div class="new-cars-content">
+            <div class="owl-carousel owl-theme" id="new-cars-carousel">
+                <div class="new-cars-item">
+                    <div class="single-new-cars-item">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="new-cars-img">
+                                    <img src="@Model.ImageUrl" alt="img" />
+                                </div><!--/.new-cars-img-->
+                            </div>
+                            <div class="col-md-5 col-sm-12">
+                                <div class="new-cars-txt">
+                                    <h2><a href="#">@Model.Brand  <span> @Model.Model</span></a></h2>
+                                    <p>
+                                        <ul>
+                                           Lokasyon : <li>@Model.Location</li><br />
+                                           Kapı Sayısı : <li>@Model.DoorCount</li><br />
+                                           Araba Yılı : <li>@Model.Year</li><br />
+                                           Vites : <li>@Model.VitesType</li><br />
+                                           Yakıt Türü : <li>@Model.FuelType</li><br />
+                                           Kapasite : <li>@Model.AdultCount Yetişkin</li><br />
+                                           Fiyat : <li>@Model.Price ₺/Gün</li><br />
+                                          
+                                        </ul>
+                                    </p>
+                                    <p class="new-cars-para2">
+                                        21 Yaş üstünde ve en az 2 yıl ehliyet sahibi sürücüler araç kiralama hizmetlerinden faydalanabilirler.
+                                    </p>
+                                    <button class="welcome-btn new-cars-btn" onclick="window.location.href='#'" style="margin-right:auto;">
+                                        Aracı Kirala
+                                    </button>
+                                    <button class="welcome-btn new-cars-btn" onclick="/Car/AllCar/">
+                                        Geri Dön
+                                    </button>
+                                </div><!--/.new-cars-txt-->
+                            </div><!--/.col-->
+                        </div><!--/.row-->
+                    </div><!--/.single-new-cars-item-->
+                </div><!--/.new-cars-item-->
+            </div><!--/#new-cars-carousel-->
+        </div><!--/.new-cars-content-->
+    </div><!--/.container-->
 
-		</section>
+</section>
 
+
+<script src="~/carvilla-v1.0/assets/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="~/carvilla-v1.0/assets/js/bootstrap.min.js"></script>
+<script src="~/carvilla-v1.0/assets/js/bootsnav.js"></script>
+<script src="~/carvilla-v1.0/assets/js/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="~/carvilla-v1.0/assets/js/custom.js"></script>
