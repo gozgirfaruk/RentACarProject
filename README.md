@@ -11,7 +11,6 @@
    * Cqrs Design Pattern
    * Mediator Design Pattern
 
-## ℹ️  Proje İçerisinde vitrin paneli Mediator Tasarım Deseni ile geliştirilirken , Admin paneli Cqrs tasarım deseni ile geliştirilmiştir.
 
 #  Projeye Ait Görseller
 
